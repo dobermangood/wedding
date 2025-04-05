@@ -185,7 +185,7 @@
     const CLIENT_ID = '294607763201-uc5u7m29utqufk0hvrm7r00n6k1s0260.apps.googleusercontent.com';
     const API_KEY = 'AIzaSyA5LzS17O7xCvx_zQHbaCBYiy_DpNMPbTc';
     const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
-    const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
+    const SCOPES = 'https://www.googleapis.com/auth/spreadsheets';
     const SHEET_ID = '1Ca0qdeJbksfVro7gwMKLJmUj6gL-mGR8EXiAN88fLLI';
     const RANGE = 'Ответы гостей!A:B';
 
@@ -219,11 +219,10 @@
         values: values,
       };
 
-      console.log(1111, gapi.client, 2222, gapi.client.sheets)
       gapi.client.sheets.spreadsheets.values.append({
         spreadsheetId: SHEET_ID,
         range: RANGE,
-        valueInputOption: 'USER_ENTERED',
+        valueInputOption: 'RAW',
         resource: body,
       }).then((response) => {
         const result = response.result;
